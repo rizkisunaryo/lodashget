@@ -1,6 +1,6 @@
 {
-  "name": "lodashget",
-  "version": "1.0.0",
+  "name": "@rizkisunaryo/lodashget",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Rizki Sunaryo",
   "license": "MIT",
@@ -9,5 +9,6 @@
   },
   "scripts": {
     "test": "mocha index.test.js"
-  }
+  },
+  "repository": "https://github.com/rizkisunaryo/lodashget.git"
 }
