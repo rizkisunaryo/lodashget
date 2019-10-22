@@ -1,0 +1,13 @@
+{
+  "name": "lodashget",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rizki Sunaryo",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "6.2.2"
+  },
+  "scripts": {
+    "test": "mocha index.test.js"
+  }
+}
