@@ -1,11 +1,15 @@
-module.exports = (obj, whatToGet, defaultValue) => {
-    const whatToGetArr = whatToGet.split('.')
+module.exports = (objOrArr, whatToGet, defaultValue) => {
+    const whatToGetArr = whatToGet
+        .split(/[.[]/)
+        .filter(el => el !== '')
+        .map(el => el.split(/['`\]]/).join(''))
+
     for (let i = 0; i < whatToGetArr.length; i++) {
-        if (obj[whatToGetArr[i]]) {
-            obj = obj[whatToGetArr[i]]
+        if (objOrArr[whatToGetArr[i]]) {
+            objOrArr = objOrArr[whatToGetArr[i]]
         } else {
             return defaultValue
         }
     }
-    return obj
+    return objOrArr
 }
