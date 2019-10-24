@@ -1,4 +1,6 @@
 module.exports = (objOrArr, whatToGet, defaultValue) => {
+    if (!objOrArr) return defaultValue
+
     const whatToGetArr = whatToGet
         .split(/[.[]/)
         .filter(el => el !== '')

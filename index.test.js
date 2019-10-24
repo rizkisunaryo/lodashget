@@ -47,4 +47,38 @@ describe('lodashget', () => {
         }
         assert.equal(lodashGet(obj, `a.b[1][2]['coba']['lagi']['terus']`, 'dasar'), 'dasar')
     })
+
+    it(`should return default if object / array is null`, () => {
+        const obj = null
+        assert.equal(lodashGet(obj, `a.b[1][2]['coba']['lagi']['terus']`, 'dasar'), 'dasar')
+    })
+
+    it(`should return default if object / array is undefined`, () => {
+        const obj = undefined
+        assert.equal(lodashGet(obj, `a.b[1][2]['coba']['lagi']['terus']`, 'dasar'), 'dasar')
+    })
+
+    it(`should return default if array, but expected like object`, () => {
+        const arr = [[1, [2, 3]], 4]
+        assert.equal(lodashGet(arr, `a.b[1][2]['coba']['lagi']['terus']`, 'dasar'), 'dasar')
+    })
+
+    it(`should return undefined if expected doesn't exist, but no default value`, () => {
+        const obj = {
+            a: {
+                b: [1, [2, 3, {coba: 'saja'}], 5]
+            }
+        }
+        assert.equal(lodashGet(obj, `a.b[1][2]['coba']['lagi']['terus']`), undefined)
+    })
+
+    it(`should return undefined if object / array is null, and default value is not set`, () => {
+        const obj = null
+        assert.equal(lodashGet(obj, `a.b[1][2]['coba']['lagi']['terus']`), undefined)
+    })
+
+    it(`should return undefined if object / array is undefined, and default value is not set`, () => {
+        const obj = undefined
+        assert.equal(lodashGet(obj, `a.b[1][2]['coba']['lagi']['terus']`), undefined)
+    })
 })
